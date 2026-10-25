@@ -29,7 +29,7 @@ Built with the help of **Claude Opus 5.5** (Anthropic): it analysed the recordin
 
 ## Install
 
-1. Build the APK (below), or download it from Releases if one is published.
+1. Download `ChopTorch-1.3.apk` from the [latest release](https://github.com/santanu19911013-svg/chop-torch/releases/latest), or build it yourself (below).
 2. Open it on the phone and allow installs from that app if asked.
 3. Open Chop Torch and turn on **Chop chop flashlight**.
 4. Tap the background-running button and allow it. Without this, Android may stop detection when the screen is off.
