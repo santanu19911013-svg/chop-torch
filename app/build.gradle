@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Chop Torch: Motorola's "Fast flashlight" (chop chop) gesture, rebuilt on the plain accelerometer
+// for phones without Motorola's chop sensor.
+android {
+    namespace 'com.motofeatures.choptorch'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.motofeatures.choptorch'
+        minSdk 26
+        targetSdk 34
+        // Bump both for every APK handed out: versionCode must grow for Android to accept an update
+        versionCode 4
+        versionName '1.3'
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    // dev: calibration recorder, upload to the PC (INTERNET) and the adb record intents (src/dev/AndroidManifest.xml).
+    // prod: none of that; the code is still compiled but gated off by CALIBRATION and stripped by R8 in release.
+    // Same applicationId and key, so one replaces the other: never run both, they would each toggle the torch.
+    flavorDimensions = ['edition']
+    productFlavors {
+        dev {
+            dimension 'edition'
+            versionNameSuffix '-dev'
+            buildConfigField 'boolean', 'CALIBRATION', 'true'
+        }
+        prod {
+            dimension 'edition'
+            buildConfigField 'boolean', 'CALIBRATION', 'false'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            // Personal use: signed with the debug key so it installs over the debug builds without uninstalling
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "choptorch-${variant.versionName}-${variant.buildType.name}.apk"
+        }
+    }
+}

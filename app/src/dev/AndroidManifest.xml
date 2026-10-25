@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Calibration-only additions, merged into the dev flavor; the prod APK has none of these. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Only for sending calibration recordings to the PC (tools/upload_server.py, plain HTTP on the LAN) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Above 200 Hz on API 31+; only used while recording calibration data -->
+    <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS" />
+
+    <application android:usesCleartextTraffic="true">
+        <activity android:name=".MainActivity">
+            <!-- Calibration from adb (am start -a ...RECORD_START). Explicit intents must match a filter on some ROMs. -->
+            <intent-filter>
+                <action android:name="com.motofeatures.choptorch.RECORD_START" />
+                <action android:name="com.motofeatures.choptorch.RECORD_STOP" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

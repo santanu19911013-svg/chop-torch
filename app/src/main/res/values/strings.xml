@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chop Torch</string>
+    <string name="channel">Chop gesture</string>
+    <string name="notif_title">Chop twice for the flashlight</string>
+    <string name="notif_recording">Recording chop calibration data</string>
+    <string name="notif_text">Two quick chopping motions switch the flashlight on or off</string>
+    <string name="intro">Hold the phone and make two quick chopping motions, like Motorola\'s Fast flashlight, to switch the flashlight on or off. Works with the screen off too, at some battery cost.</string>
+    <string name="enable">Chop chop flashlight</string>
+    <string name="sound">Click sound on torch on/off</string>
+    <string name="battery_allowed">✓ Background running allowed (tap to review)</string>
+    <string name="battery_restricted">⚠ Background running restricted: tap to allow</string>
+    <string name="battery_bg_restricted">⚠ Background activity restricted: tap, then Battery → allow background activity</string>
+    <string name="hint_samsung">Samsung also has its own list the app cannot check: Settings → Device care (Battery and device care) → Battery → Background usage limits (App power management) → Never sleeping apps → add Chop Torch.</string>
+    <string name="hint_xiaomi">MIUI also has settings the app cannot check: Settings → Apps → Chop Torch → Autostart on, and Battery saver → No restrictions.</string>
+    <string name="calibration">Calibration: records the accelerometer (and Motorola\'s chop sensor, if this phone has one) to a file, to tune the detector.</string>
+    <string name="record_start">Start recording</string>
+    <string name="record_stop">Stop recording</string>
+    <string name="on">on</string>
+    <string name="off">off</string>
+    <string name="status_fmt">service: %1$s\nour double chops: %2$d (sideways swings %3$d)\nMotorola chop sensor: %4$d\naccel samples: %5$d\nfile: %6$s</string>
+    <string name="status_prod_fmt">service: %1$s\ndouble chops: %2$d</string>
+    <string name="version_fmt">Version %1$s (build %2$d)</string>
+    <string name="server_hint">PC upload server, e.g. http://192.168.1.20:8765</string>
+    <string name="upload">Send recordings to PC</string>
+    <string name="sending">Sending…</string>
+    <string name="sent_fmt">Done: %1$d file(s) sent.</string>
+</resources>

@@ -1,0 +1,11 @@
+# Build output and machine-specific files
+.gradle/
+build/
+app/build/
+local.properties
+*.iml
+.idea/
+*.apk
+# Calibration recordings stay on your machine
+*.csv
+__pycache__/
